@@ -2,19 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Socket.io Basic</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .well{
+            margin-top: 35px;
+        }
+    </style>
 </head>
 <body>
-<h1>Chat room</h1>
-<a href="index.html">Change Settings</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            <h1 class="text-center">Chat room</h1>
+            <a href="index.html">Change Settings</a>
 
-<h2 class="room-title"></h2>
+            <h2 class="room-title text-center"></h2>
 
-<div class="messages"></div>
-<form id="message-form">
-    <input type="text" name="message">
-    <button type="submit">Submit</button>
-</form>
+            <ul class="messages list-group"></ul>
+            <form id="message-form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                        <input class="form-control" type="text" name="message">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default btn-block" type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
 <script src="js/jquery-2.2.0.min.js"></script>
 <script src="js/socket.io-1.4.3.js"></script>
 <script src="js/moment.js"></script>

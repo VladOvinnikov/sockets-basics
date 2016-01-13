@@ -13,13 +13,17 @@ socket.on('connect', function () {
     })
 });
 
-socket.on('message', function (messages) {
-    var momentTimestamp = moment.utc(messages.timestamp);
-    var message = $('.messages');
+socket.on('message', function (messageSend) {
+    var momentTimestamp = moment.utc(messageSend.timestamp);
+    var messages = $('.messages');
+    var message = $('<li class="list-group-item"></li>');
+
     console.log('New message: ');
     console.log(message.text);
-    message.append('<p><strong>' + messages.name + ' ' + momentTimestamp.local().format('h:mm a') + '</strong></p>');
-    message.append('<p>' + messages.text + '</p>');
+
+    message.append('<small><strong>' + messageSend.name + ' ' + momentTimestamp.local().format('h:mm a') + '</strong></small>');
+    message.append('<p>' + messageSend.text + '</p>');
+    messages.append(message);
 });
 
 var form = $('#message-form');
