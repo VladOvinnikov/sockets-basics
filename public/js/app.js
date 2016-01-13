@@ -3,8 +3,14 @@ var room = getQueryVariable('room');
 console.log(name);
 var socket = io();
 
+$('.room-title').text(room);
 socket.on('connect', function () {
     console.log('Connected to server');
+
+    socket.emit('joinRoom', {
+        name: name,
+        room: room
+    })
 });
 
 socket.on('message', function (messages) {
